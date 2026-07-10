@@ -212,5 +212,15 @@ function addFlavor(){
 
 }
 
+window.addEventListener("DOMContentLoaded", () => {
+    const music = document.getElementById("bgMusic");
 
+    music.volume = 0.3;
 
+    const startMusic = () => {
+        music.play().catch(err => console.log(err));
+        document.removeEventListener("click", startMusic);
+    };
+
+    document.addEventListener("click", startMusic);
+});
